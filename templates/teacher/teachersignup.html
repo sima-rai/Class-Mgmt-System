@@ -1,0 +1,73 @@
+{% extends 'teacher/teacherbase.html' %}
+{% block title %}Signup{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h3 style="text-align: center;">Teacher Signup Form</h3>
+        <span> <a href="{% url 'cmsapp:teacherlogin' %}">Login</a></span>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="container">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="row" style="padding-top: 50px; padding-bottom: 50px; padding-left: 20px; padding-right: 20px;">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Full name</label>
+                                {{form.full_name}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Last name</label>
+                                {{form.last_name}}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Username</label>
+                                {{form.username}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                {{form.email}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                {{form.password}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Contact</label>
+                                {{form.contact}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Address</label>
+                                {{form.address}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">School</label>
+                                {{form.school}}
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div style="padding-bottom: 10px; padding-top: 10px;" >
+                        <button class="btn btn-primary" type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

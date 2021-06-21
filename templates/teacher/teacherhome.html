@@ -1,0 +1,8 @@
+{% extends 'teacher/teacherbase.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div>
+    <p><a href="{% url 'cmsapp:teacherlogout' %}">logout</a></p>
+    teacher home page
+</div>
+{% endblock %}

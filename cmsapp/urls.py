@@ -7,4 +7,11 @@ app_name = "cmsapp"
 
 urlpatterns = [
     path("", IndexView),
+    path("teacher/home/", TeacherHomeView.as_view(), name="teacherhome"),
+    path("teacher/signup/", TeacherSignupView.as_view(), name="teachersignup"),
+    path("teacher/logout/", TeacherLogoutView.as_view(), name="teacherlogout"),
+    path("teacher/login/", TeacherLoginView.as_view(), name="teacherlogin"),
+
+
+
 ]
