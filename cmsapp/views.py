@@ -34,6 +34,15 @@ def IndexView(request):
 class TeacherHomeView(TeacherRequiredMixin, TemplateView):
     template_name = "teacher/teacherhome.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        teacher_obj = Teacher.objects.get(user=self.request.user)
+        school = teacher_obj.school
+        context['school']=school
+        return context
+
+
+
 
 class TeacherSignupView(CreateView):
     template_name = "teacher/teachersignup.html"
