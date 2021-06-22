@@ -20,7 +20,7 @@ class TeacherHomeView(TemplateView):
 class TeacherSignupView(CreateView):
     template_name = "teacher/teachersignup.html"
     form_class = TeacherSignupForm
-    success_url = reverse_lazy("cmsapp:teacherhome")
+    success_url = reverse_lazy("cmsapp:teachersignup")
 
     def form_valid(self, form):
         username = form.cleaned_data["username"]
@@ -51,6 +51,23 @@ class TeacherLoginView(FormView):
             return render(self.request, self.template_name, {"form":self.form_class, "error":"Invalid Credentials"})
         
         return super().form_valid(form)
+
+
+class StudentSignupView(CreateView):
+    template_name = "student/studentsignup.html"
+    form_class = StudentSignupForm
+    success_url = reverse_lazy("cmsapp:studentsignup")
+
+    def form_valid(self, form):
+        username = form.cleaned_data["username"]
+        password = form.cleaned_data["password"]
+        email = form.cleaned_data["email"]
+        user = User.objects.create_user(username, email, password)
+        form.instance.user = user
+        return super().form_valid(form)
+
+
+
 
 
 
