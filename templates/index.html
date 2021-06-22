@@ -1,1 +1,45 @@
-index
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Management System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+    <div class="container" style="padding-top: 80px; padding-bottom:80px; padding-left: 50px; padding-right: 50px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="padding-bottom: 30px;">
+                <h4 style="text-align: center;">Class Management System</h4>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style="height: 15rem; background-color:lightgoldenrodyellow;">
+                        <div class="card-body">
+                            <h4>Are you a Teacher? </h4>
+                            <span> <a href="{% url 'cmsapp:teacherlogin'%}" target="blank"> Login</a> </span> Or <span><a href="{% url 'cmsapp:teachersignup'%}" target="blank">Signup</a></span> here.
+                           
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card" style=" height: 15rem;  background-color:lightgoldenrodyellow;">
+                        <div class="card-body">
+                            <h4>Are you a Student? </h4>
+                            <span> <a href="{% url 'cmsapp:studentlogin'%}" target="blank"> Login</a> </span> Or <span><a href="{% url 'cmsapp:studentsignup'%}" target="blank">Signup</a></span> here.
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+    
+</body>
+</html>
