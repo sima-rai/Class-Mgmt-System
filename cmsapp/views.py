@@ -8,12 +8,30 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
+class TeacherRequiredMixin(object):
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated and Teacher.objects.filter(user=request.user).exists():
+            pass
+        else:
+            return redirect("cmsapp:teacherlogin")
+        
+        return super().dispatch(request, *args, **kwargs)
+
+
+class StudentRequiredMixin(object):
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated and Student.objects.filter(user=request.user).exists():
+            pass
+        else:
+            return redirect("cmsapp:studentlogin")
+        
+        return super().dispatch(request, *args, **kwargs)
 
 
 def IndexView(request):
     return render(request, 'index.html')
 
-class TeacherHomeView(TemplateView):
+class TeacherHomeView(TeacherRequiredMixin, TemplateView):
     template_name = "teacher/teacherhome.html"
 
 
@@ -34,7 +52,7 @@ class TeacherSignupView(CreateView):
 class TeacherLogoutView(View):
     def get(self, request):
         logout(request)
-        return redirect("cmsapp:teachersignup")
+        return redirect("cmsapp:teacherlogin")
 
 class TeacherLoginView(FormView):
     template_name = "teacher/teacherlogin.html"
@@ -83,7 +101,7 @@ class StudentLoginView(FormView):
         
         return super().form_valid(form)
 
-class StudentHomeView(TemplateView):
+class StudentHomeView(StudentRequiredMixin, TemplateView):
     template_name = "student/studenthome.html"
 
 
