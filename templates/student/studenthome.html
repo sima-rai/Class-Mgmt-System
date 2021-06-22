@@ -1,0 +1,8 @@
+{% extends 'student/studentbase.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div>
+    <p><a href="{% url 'cmsapp:studentlogout' %}">logout</a></p>
+    student home page
+</div>
+{% endblock %}

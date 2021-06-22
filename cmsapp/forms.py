@@ -42,6 +42,12 @@ class StudentSignupForm(forms.ModelForm):
         return uname
 
 
+class StudentLoginForm(forms.Form):
+    username = forms.CharField(widget=forms.TextInput())
+    password = forms.CharField(widget=PasswordInput())
+
+
+
 
 
     

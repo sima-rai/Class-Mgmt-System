@@ -14,10 +14,11 @@ urlpatterns = [
     path("teacher/login/", TeacherLoginView.as_view(), name="teacherlogin"),
 
     #student
-    # path("student/home/", StudentHomeView.as_view(), name="studenthome"),
+    path("student/home/", StudentHomeView.as_view(), name="studenthome"),
     path("student/signup/", StudentSignupView.as_view(), name="studentsignup"),
-    # path("student/logout/", StudentLogoutView.as_view(), name="studentlogout"),
-    # path("student/login/", StudentLoginView.as_view(), name="studentlogin"),
+    path("student/login/", StudentLoginView.as_view(), name="studentlogin"),
+    path("student/logout/", StudentLogoutView.as_view(), name="studentlogout"),
+
 
 
 

@@ -67,6 +67,32 @@ class StudentSignupView(CreateView):
         return super().form_valid(form)
 
 
+class StudentLoginView(FormView):
+    template_name = "student/studentlogin.html"
+    form_class = StudentLoginForm
+    success_url = reverse_lazy("cmsapp:studenthome")
+
+    def form_valid(self, form):
+        uname = form.cleaned_data["username"]
+        pword = form.cleaned_data["password"]
+        usr = authenticate(username=uname, password=pword)
+        if usr is not None and Student.objects.filter(user=usr).exists():
+            login(self.request, usr)
+        else:
+            return render(self.request, self.template_name, {"form":self.form_class, "error":"Invalid Credentials"})
+        
+        return super().form_valid(form)
+
+class StudentHomeView(TemplateView):
+    template_name = "student/studenthome.html"
+
+
+class StudentLogoutView(View):
+    def get(self, request):
+        logout(request)
+        return redirect("cmsapp:studentsignup")
+
+
 
 
 

@@ -1,0 +1,42 @@
+{% extends 'student/studentbase.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="header">
+        <h3 style="text-align: center;">Student Login Form</h3>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="container">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="row" style="padding-top: 50px; padding-bottom: 50px; padding-left: 20px; padding-right: 20px;">
+                        
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="">Username</label>
+                                {{form.username}}
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Password</label>
+                                {{form.password}}
+                            </div>
+                        </div>
+                        {% if error %}
+                        {{error}}
+                        {% endif %}
+                     
+                        <div style="padding-bottom: 10px; padding-top: 10px;" >
+                            <button class="btn btn-primary" type="submit">Login</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
