@@ -80,6 +80,18 @@ class TeacherLoginView(FormView):
         return super().form_valid(form)
 
 
+class TeacherCreateNotice(CreateView):
+    template_name = "teacher/teachernoticecreate.html"
+    form_class = TeacherNoticeCreateForm
+    success_url = reverse_lazy("cmsapp:teacherhome")
+
+    def form_valid(self, form):
+        user = self.request.user.id
+        print(user, "fff")
+        teacher = Teacher.objects.get(user=self.request.user.id)
+        form.instance.teacher = teacher
+        return super().form_valid(form)
+
 class StudentSignupView(CreateView):
     template_name = "student/studentsignup.html"
     form_class = StudentSignupForm

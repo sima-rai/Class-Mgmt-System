@@ -12,6 +12,8 @@ urlpatterns = [
     path("teacher/signup/", TeacherSignupView.as_view(), name="teachersignup"),
     path("teacher/logout/", TeacherLogoutView.as_view(), name="teacherlogout"),
     path("teacher/login/", TeacherLoginView.as_view(), name="teacherlogin"),
+    path("teacher/create-notice/", TeacherCreateNotice.as_view(), name="teachercreatenotice"),
+    
 
     #student
     path("student/home/", StudentHomeView.as_view(), name="studenthome"),

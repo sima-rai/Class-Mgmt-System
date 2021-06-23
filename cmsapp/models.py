@@ -50,3 +50,14 @@ class Student(TimeStamp):
     def __str__(self):
         return self.full_name
 
+class Notice(TimeStamp):
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE)
+    notice = models.TextField()
+    image = models.ImageField(upload_to="notice/images/", null=True, blank=True)
+    file = models.FileField(upload_to="notice/files/", null=True, blank=True)
+    grade = models.ManyToManyField(Grade, blank=True)
+
+    def __str__(self):
+        return self.notice
+
+

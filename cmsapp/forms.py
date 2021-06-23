@@ -1,6 +1,7 @@
 from django import forms
 from django.db import models
 from django.db.models import fields
+from django.forms import widgets
 from django.forms.widgets import PasswordInput
 from .models import *
 
@@ -45,6 +46,22 @@ class StudentSignupForm(forms.ModelForm):
 class StudentLoginForm(forms.Form):
     username = forms.CharField(widget=forms.TextInput())
     password = forms.CharField(widget=PasswordInput())
+
+
+class TeacherNoticeCreateForm(forms.ModelForm):
+    class Meta:
+        model = Notice
+        fields = ['notice', 'image', 'file', 'grade']
+        
+        # widgets = {
+        #     'notice':forms.TextInput(attrs={
+        #         'placeholder':'Write Something',
+        #         'style': 'height:50px;display:inline-block;overflow-x: hidden;overflow-y: scroll;'
+        #     })
+        # }
+
+
+
 
 
 

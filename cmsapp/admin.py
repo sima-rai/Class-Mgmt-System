@@ -3,4 +3,4 @@ from .models import *
 
 # Register your models here.
 
-admin.site.register([Teacher, Student, School, Grade])
+admin.site.register([Teacher, Student, School, Grade, Notice])
