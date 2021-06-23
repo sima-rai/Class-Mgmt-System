@@ -7,6 +7,7 @@
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     {% block css %}
     {% endblock %}
@@ -14,18 +15,19 @@
 </head>
 <body>
     <div>
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">{{school}}</a>
-           <!-- {{request.user}} -->
-        <p><a href="{% url 'cmsapp:teacherlogout' %}">logout</a></p>
-    
-            
-        </nav>
+        <div style="position: sticky;">
+            <nav class="navbar navbar-light bg-light" > 
+                <a class="navbar-brand" href="#">{{school}}</a>
+            <!-- {{request.user}} -->
+            <p><a href="{% url 'cmsapp:teacherlogout' %}">logout</a></p>
+            </nav>
+        </div>
+        
         <div class="row">
             <div class="col-md-3">
                 <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
                     <ul>
-                        <a href="#" class="w3-bar-item w3-button">Dashboard</a>
+                        <a href="{% url 'cmsapp:teacherhome'%}" class="w3-bar-item w3-button">Dashboard</a>
                         <a href="#" class="w3-bar-item w3-button">Notice</a>
                         <a href="{% url 'cmsapp:teachercreatenotice' %}" class="w3-bar-item w3-button">Create Notice</a>
 
@@ -54,3 +56,4 @@
 
 </body>
 </html>
+

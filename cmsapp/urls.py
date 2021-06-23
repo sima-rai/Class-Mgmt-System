@@ -13,6 +13,7 @@ urlpatterns = [
     path("teacher/logout/", TeacherLogoutView.as_view(), name="teacherlogout"),
     path("teacher/login/", TeacherLoginView.as_view(), name="teacherlogin"),
     path("teacher/create-notice/", TeacherCreateNotice.as_view(), name="teachercreatenotice"),
+    # path("teacher/notice-list/", TeacherNoticeList.as_view(), name="noticelist"),
     
 
     #student

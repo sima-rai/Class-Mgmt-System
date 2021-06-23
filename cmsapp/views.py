@@ -37,8 +37,14 @@ class TeacherHomeView(TeacherRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         teacher_obj = Teacher.objects.get(user=self.request.user)
+        print(teacher_obj)
         school = teacher_obj.school
+        notices = Notice.objects.filter(teacher=teacher_obj).order_by("-id")
+        print(notices)
         context['school']=school
+        context['notices']=notices
+        # context['teacher']=notices
+
         return context
 
 
@@ -91,6 +97,12 @@ class TeacherCreateNotice(CreateView):
         teacher = Teacher.objects.get(user=self.request.user.id)
         form.instance.teacher = teacher
         return super().form_valid(form)
+
+
+
+
+
+
 
 class StudentSignupView(CreateView):
     template_name = "student/studentsignup.html"

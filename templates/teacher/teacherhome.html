@@ -4,13 +4,56 @@
 
 {% endblock %}
 {% block content %}
-
-
-<div class="container" style="padding-top: 30px;">
+<!-- <div class="col-md-9">
+    <div class="container block" style="padding-top: 30px;">
+        <h4>Notice</h4>
+        {% for notice in notices %}
+        <div class="card" style="width: 80%; height: 150px;  overflow: auto;">
+            <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
+                <i class="fa fa-user fa-lg" aria-hidden="true" ></i>  {{request.user}}</i>
+                    <p>posted: {{notice.created_at|timesince}} ago</p>
+                    <p> {{notice.notice}} </p>
+                    
     
+                   
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    
+        
+    
+    
+    </div>
 
+</div> -->
+
+<div class="w3-sidebar w3-light-white w3-bar-block" style="width:80%">
+    <div class="container block" style="padding-top: 30px;">
+        <h4>Notice</h4>
+        {% for notice in notices %}
+        <div class="card" style="width: 80%; height: 150px;">
+            <div class="container" style="padding-top: 10px; padding-bottom: 10px;">
+                <i class="fa fa-user fa-lg" aria-hidden="true" ></i>  {{request.user}}</i>
+                    <p>posted: {{notice.created_at|timesince}} ago</p>
+                    <p> {{notice.notice}} </p>
+                    
+    
+                   
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    
+        
+    
+    
+    </div>
 
 </div>
+
+
+
 
 {% endblock %}
 
